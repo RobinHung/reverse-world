@@ -1,0 +1,41 @@
+# Project: Reverse_World
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = "ending\ page\ code.o" level.o main.o "starting\ page\ code.o" rank.o
+LINKOBJ  = "ending page code.o" level.o main.o "starting page code.o" rank.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+BIN      = Reverse_World.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+"ending\ page\ code.o": ending\ page\ code.cpp
+	$(CPP) -c "ending page code.cpp" -o "ending page code.o" $(CXXFLAGS)
+
+level.o: level.cpp
+	$(CPP) -c level.cpp -o level.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+"starting\ page\ code.o": starting\ page\ code.cpp
+	$(CPP) -c "starting page code.cpp" -o "starting page code.o" $(CXXFLAGS)
+
+rank.o: rank.cpp
+	$(CPP) -c rank.cpp -o rank.o $(CXXFLAGS)
